@@ -10,7 +10,10 @@ const props = defineProps({
 <template>
     <div class="root">
         <div :style="`background-image: url(${imgUrl})`" class="img"></div>
-        <div class="main"></div>
+        <div class="main">
+            <el-button class="btn">Get random cocktail</el-button>
+            <slot></slot>
+        </div>
     </div>
 </template>
 
@@ -29,5 +32,22 @@ const props = defineProps({
     background-size: cover
 
 .main
+    position: relative
     width: 50%
+    padding: 32px 40px
+
+.btn
+    position: absolute
+    top: 32px
+    right: 40px
+    font-size: 16px
+    font-family: 'Raleway', 'Arial', sans-serif
+    background-color: $accent
+    border-color: $accent
+    color: $text
+
+    &:hover,
+    &:active
+        background-color: darken($accent, 10%)
+        border-color: darken($accent, 10%)
 </style>
