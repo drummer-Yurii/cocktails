@@ -17,7 +17,7 @@ function getCocktails() {
 <template>
     <AppLayout imgUrl="/src/assets/img/bg-1.jpg">
         <div class="wrapper">
-            <div v-if="!rootStore.ingredient || !cocktails" class="info">
+            <div v-if="!ingredient || !cocktails" class="info">
                 <div class="title">Choose your drink</div>
                 <div class="line"></div>
                 <div class="select-wrapper">
@@ -60,15 +60,6 @@ function getCocktails() {
 
 <style lang="sass" scoped>
 @import '../assets/styles/main'
-
-.wrapper
-    display: flex
-    justify-content: center
-    align-items: center
-
-.info
-    padding: 80px 0
-    text-align: center
 
 .select-wrapper
     padding-top: 50px
