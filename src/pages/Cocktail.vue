@@ -2,7 +2,7 @@
 import axios from 'axios';
 import { ref, computed } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import { COCTAIL_BY_ID } from '@/constants';
+import { COCKTAIL_BY_ID } from '@/constants';
 import AppLayout from "../components/AppLayout.vue";
 
 const route = useRoute();
@@ -16,7 +16,6 @@ const ingredients = computed(() => {
 
     for (let i = 1; i <= 15; i++) {
         if (!cocktail.value[`strIngredient${i}`]) break;
-
         const ingredient = {};
         ingredient.name = cocktail.value[`strIngredient${i}`];
         ingredient.measure = cocktail.value[`strMeasure${i}`];
@@ -28,7 +27,7 @@ const ingredients = computed(() => {
 })
 
 async function getCocktail() {
-    const data = await axios.get(`${COCTAIL_BY_ID}${cocktailId.value}`);
+    const data = await axios.get(`${COCKTAIL_BY_ID}${cocktailId.value}`);
     cocktail.value = data?.data?.drinks[0];
 }
 
