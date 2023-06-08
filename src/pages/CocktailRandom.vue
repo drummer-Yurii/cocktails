@@ -1,14 +1,10 @@
 <script setup>
 import axios from 'axios';
 import { ref, computed } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
 import { COCKTAIL_RANDOM, INGREDIENT_PIC } from '@/constants';
 import AppLayout from "../components/AppLayout.vue";
-
-const route = useRoute();
-const router = useRouter();
 
 const cocktail = ref(null);
 
@@ -31,16 +27,12 @@ async function getCocktail() {
     cocktail.value = data?.data?.drinks[0];
 }
 
-function goBack() {
-    router.go(-1)
-}
-
 getCocktail();
 </script>
 
 <template>
     <div v-if="cocktail" class="wrap">
-        <AppLayout :imgUrl="cocktail.strDrinkThumb" :backFunc="goBack">
+        <AppLayout :imgUrl="cocktail.strDrinkThumb">
             <div class="wrapper">
                 <div class="info">
                     <div class="title">{{ cocktail.strDrink }}</div>
